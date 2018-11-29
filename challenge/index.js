@@ -24,6 +24,20 @@ const outputData = tf.tensor2d(iris.map(item => [
 // creating model
 const model = tf.sequential();
 
+// adding input layer to model
+model.add(tf.layers.dense({
+  inputShape: [4],
+  activation: "sigmoid",
+  units: 10
+}));
+
+// adding output layer to model
+model.add(tf.layers.dense({
+  inputShape: [10],
+  activation: "softmax",
+  units: 3
+}));
+
 // compiling model
 
 
