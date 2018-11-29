@@ -2,10 +2,12 @@ const tf = require('@tensorflow/tfjs');
 const iris = require('./iris.json');
 const irisTesting = require('./testingIris.json');
 
+// convert training data
 const trainingData = tf.tensor2d(iris.map(item=> [
   item.sepal_length, item.sepal_width, item.petal_length, item.petal_width
 ]),[130,4]);
 
+// convert testing data
 const testingData = tf.tensor2d(irisTesting.map(item => [
   item.sepal_length, item.sepal_width, item.petal_length, item.petal_width
 ]), [14, 4]);
@@ -19,11 +21,8 @@ const outputData = tf.tensor2d(iris.map(item => [
   item.species === 'versicolor' ? 1 : 0
 ]), [130,3]);
 
-// convert data
-
-
 // creating model
-
+const model = tf.sequential();
 
 // compiling model
 
