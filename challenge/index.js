@@ -44,5 +44,11 @@ model.compile({
   optimizer: tf.train.adam()
 });
 
-
 // predicting model
+async function train_data(){
+  for(let i=0;i<15;i++){
+     const res = await model.fit(trainingData,
+                 outputData,{epochs: 40});  
+     console.log(res.history.loss[0]);          
+  }
+}
