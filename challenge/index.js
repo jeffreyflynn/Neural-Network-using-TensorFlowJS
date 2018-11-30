@@ -21,7 +21,7 @@ const outputData = tf.tensor2d(iris.map(item => [
   item.species === 'versicolor' ? 1 : 0
 ]), [130,3]);
 
-// creating model
+// creating the model
 const model = tf.sequential();
 
 // adding input layer to model
@@ -39,6 +39,10 @@ model.add(tf.layers.dense({
 }));
 
 // compiling model
+model.compile({
+  loss: "categoricalCrossEntropy",
+  optimizer: tf.train.adam()
+});
 
 
 // predicting model
