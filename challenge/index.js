@@ -1,6 +1,6 @@
 const tf = require('@tensorflow/tfjs');
-const iris = require('./iris.json');
-const irisTesting = require('./testingIris.json');
+const iris = require('./training.json');
+const irisTesting = require('./testing.json');
 
 // convert training data
 const trainingData = tf.tensor2d(iris.map(item=> [
