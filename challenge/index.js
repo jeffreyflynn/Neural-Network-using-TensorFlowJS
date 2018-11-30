@@ -46,9 +46,18 @@ model.compile({
 
 // predicting model
 async function train_data(){
-  for(let i=0;i<15;i++){
-     const res = await model.fit(trainingData,
-                 outputData,{epochs: 40});  
-     console.log(res.history.loss[0]);          
+  console.log('......Loss History.......');
+
+  for(let i = 0; i < 15; i++){
+    const res = await model.fit(trainingData, outputData,{epochs: 40});  
+    console.log(`Iteration ${i}: ${res.history.loss[0]}`);         
   }
 }
+
+async function main() {
+  let train = await train_data();
+  console.log('....Model Prediction .....');
+  model.predict(testingData).print();
+}
+
+main();
